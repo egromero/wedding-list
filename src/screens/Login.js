@@ -2,36 +2,34 @@ import React from "react";
 import theme from "./components/Theme";
 import { ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
+import { styled as styledMui } from "@mui/system";
 import styled from "styled-components";
 import TextField from "@mui/material/TextField";
-import { Link } from "react-router-dom";
-import { styled as styledMui } from "@mui/system";
 
-const Landing = () => {
+const Login = () => {
   return (
     <ThemeProvider theme={theme}>
       <CardContainer>
-        <p>Ingresa el código de matrimonio</p>
-        <TextField label="Código" color="neutral" focused />
-        <Link to="/gifts">
-          <StyledButton variant="contained" color="complement">
-            Validar
-          </StyledButton>
-        </Link>
-        <p>o</p>
-        <Link to="/login">
-          <Button variant="contained" color="neutral">
-            Somos los novios
-          </Button>
-        </Link>
+        <p>Ingresa a tu cuenta</p>
+        <StyledTextField label="Usuario" color="neutral" focused />
+        <StyledTextField
+          label="Contraseña"
+          color="neutral"
+          focused
+          type="password"
+        />
+        <Button variant="contained" color="neutral">
+          Ingresar
+        </Button>
       </CardContainer>
     </ThemeProvider>
   );
 };
 
-const StyledButton = styledMui(Button)`
+const StyledTextField = styledMui(TextField)`
   margin: 10px;
 `;
+
 const CardContainer = styled.div`
   align-items: center;
   border-radius: 5px;
@@ -47,4 +45,4 @@ const CardContainer = styled.div`
   background-color: rgba(249, 249, 249, 0);
 `;
 
-export default Landing;
+export default Login;

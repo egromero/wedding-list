@@ -4,10 +4,12 @@ import styled from "styled-components";
 import Button from "@mui/material/Button";
 import theme from "./components/Theme";
 import { ThemeProvider } from "@mui/material/styles";
+import Checkout from "./Checkout";
 
 const DetailsGift = () => {
   const { id } = useParams();
   const [data, setData] = useState([]);
+  const [showCheckout, setShowCheckout] = useState(false);
   const fetchData = () => {
     fetch(`http://localhost:3000/gifts/details`, {
       headers: { "Content-Type": "application/json" },
@@ -30,39 +32,38 @@ const DetailsGift = () => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <CardContainer>
-        <ImageContainer>
-          <img
-            style={{
-              height: "100%",
-              width: "100%",
-              "object-fit": "contain",
-              "box-shadow": "0 0 3px gray",
-              "border-radius": "3px",
-            }}
-            src={data.image}
-          />
-        </ImageContainer>
-        <Column>
-          <TextName>{data.name} </TextName>
-          <TextDescription>{data.description}</TextDescription>
-          <TextPrice>${data.price}</TextPrice>
-          <Row>
-            <Button
-              variant="contained"
-              color="neutral"
-              sx={{ "margin-right": "5px" }}
-            >
-              Mercado Pago
-            </Button>
-            <Button variant="contained" color="complement">
-              Transferencia
-            </Button>
-          </Row>
-        </Column>
-      </CardContainer>
-    </ThemeProvider>
+    (showCheckout && <Checkout name={data.name} price={data.price} />) || (
+      <ThemeProvider theme={theme}>
+        <CardContainer>
+          <ImageContainer>
+            <img
+              style={{
+                height: "100%",
+                width: "100%",
+                objectFit: "contain",
+                boxShadow: "0 0 3px gray",
+                borderRadius: "3px",
+              }}
+              src={data.image}
+            />
+          </ImageContainer>
+          <Column>
+            <TextName>{data.name} </TextName>
+            <TextDescription>{data.description}</TextDescription>
+            <TextPrice>${data.price}</TextPrice>
+            <Row>
+              <Button
+                variant="contained"
+                color="neutral"
+                onClick={() => setShowCheckout(true)}
+              >
+                Regalar
+              </Button>
+            </Row>
+          </Column>
+        </CardContainer>
+      </ThemeProvider>
+    )
   );
 };
 
@@ -73,7 +74,8 @@ const TextName = styled.h1`
 const TextDescription = styled.p`
   font-family: fantasy;
   font-size: 20px;
-  margin: 15px 0;
+  margin: 20px 0;
+  width: 250px;
 `;
 
 const TextPrice = styled.p`

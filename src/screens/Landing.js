@@ -18,12 +18,6 @@ const Landing = () => {
             Validar
           </StyledButton>
         </Link>
-        <p>o</p>
-        <Link to="/login">
-          <Button variant="contained" color="neutral">
-            Somos los novios
-          </Button>
-        </Link>
       </CardContainer>
     </ThemeProvider>
   );

@@ -4,7 +4,6 @@ import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import DetailsGift from "./DetailsGift";
 import { Link } from "react-router-dom";
 
 const Gifts = () => {

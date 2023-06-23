@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./screens/Landing";
 import Gifts from "./screens/Gifts";
 import DetailsGift from "./screens/DetailsGift";

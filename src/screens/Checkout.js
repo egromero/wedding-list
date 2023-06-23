@@ -1,9 +1,10 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "@mui/material";
 import theme from "./components/Theme";
 import { ThemeProvider } from "@mui/material/styles";
+import { Routes } from "../Routes";
 
 const Checkout = ({ name, price }) => {
   return (
@@ -43,11 +44,14 @@ const Checkout = ({ name, price }) => {
 };
 
 const sendMessage = (name, price) => {
-  fetch(`http://localhost:3000/gifts/checkout`, {
+  fetch(Routes.checkout, {
     headers: { "Content-Type": "application/json" },
     method: "POST",
     body: JSON.stringify({ name: name, price: price }),
+  }).then(()=>{
+    window.location.href = "/gifts";
   });
+  
 };
 
 const AcountText = styled.p`

@@ -5,13 +5,16 @@ import Button from "@mui/material/Button";
 import theme from "./components/Theme";
 import { ThemeProvider } from "@mui/material/styles";
 import Checkout from "./Checkout";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import AppBar from "@mui/material/AppBar";
+import { Routes } from "../Routes";
 
 const DetailsGift = () => {
   const { id } = useParams();
   const [data, setData] = useState([]);
   const [showCheckout, setShowCheckout] = useState(false);
   const fetchData = () => {
-    fetch(`http://localhost:3000/gifts/details`, {
+    fetch(Routes.details, {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify({ id: id }),
@@ -34,6 +37,12 @@ const DetailsGift = () => {
   return (
     (showCheckout && <Checkout name={data.name} price={data.price} />) || (
       <ThemeProvider theme={theme}>
+        <AppBar position="static" color="neutral">
+          <Navbar>
+            <FavoriteIcon sx={{ marginRight: "10px" }} />
+            T&E - Regalos matrimonio
+          </Navbar>
+        </AppBar>
         <CardContainer>
           <ImageContainer>
             <img
@@ -66,6 +75,14 @@ const DetailsGift = () => {
     )
   );
 };
+
+const Navbar = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+  justify-content: center;
+  align-items: center;
+`;
 
 const TextName = styled.h1`
   margin: 0;

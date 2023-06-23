@@ -1,4 +1,4 @@
-const url = "https://wedding-list-backend.onrender.com/";
+const url = "https://wedding-list-backend.onrender.com";
 
 const Routes = {
   details: `${url}/gifts/details`,

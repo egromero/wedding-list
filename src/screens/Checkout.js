@@ -1,5 +1,4 @@
 import React from "react";
-import { redirect } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "@mui/material";
 import theme from "./components/Theme";

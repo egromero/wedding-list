@@ -66,7 +66,7 @@ const CardContainer = styled.div`
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  width: 100vh;
+  // width: 100vh;
   left: 0;
   right: 0;
   margin: 10% auto;

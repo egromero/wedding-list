@@ -10,17 +10,9 @@ const Checkout = ({ name, price }) => {
     <ThemeProvider theme={theme}>
       <CardContainer>
         <AcountText style={{ marginBottom: "40px" }}>
-          Transfiera a cualquiera de siguientes cuentas:
+          Transfiera a esta cuenta:
         </AcountText>
         <Row>
-          <Column>
-            <AcountText> Nombre: Erick Romero Santibáñez</AcountText>
-            <AcountText> Rut: 19065385-4</AcountText>
-            <AcountText> Banco: Banco Chile</AcountText>
-            <AcountText> Tipo de cuenta: Cuenta Corriente</AcountText>
-            <AcountText> Cuenta: 4420201102</AcountText>
-            <AcountText> tamarayerick090923@gmail.com</AcountText>
-          </Column>
           <Column>
             <AcountText> Nombre: Erick Romero Santibáñez</AcountText>
             <AcountText> Rut: 19065385-4</AcountText>
@@ -75,7 +67,7 @@ const CardContainer = styled.div`
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  width: 100vh;
+  // width: 100vh;
   left: 0;
   right: 0;
   margin: 10% auto;

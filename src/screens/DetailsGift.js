@@ -86,17 +86,17 @@ const Navbar = styled.div`
 
 const TextName = styled.h1`
   margin: 0;
+  font-size: 1.5rem;
 `;
 
 const TextDescription = styled.p`
-  font-family: fantasy;
-  font-size: 20px;
+  font-size: 1rem;
   margin: 20px 0;
   width: 250px;
 `;
 
 const TextPrice = styled.p`
-  font-size: 30px;
+  font-size: 1rem;
   margin: 15px 0;
 `;
 
@@ -121,7 +121,6 @@ const CardContainer = styled.div`
   border-radius: 5px;
   display: flex;
   flex-direction: row;
-  width: 150vh;
   left: 0;
   right: 0;
   margin: 5% auto;

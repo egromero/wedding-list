@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import theme from "./components/Theme";
 import { ThemeProvider } from "@mui/material/styles";
-import {Routes} from "../Routes";
+import { Routes } from "../Routes";
 
 const Gifts = () => {
   const [data, setData] = useState([]);
@@ -40,33 +40,34 @@ const Gifts = () => {
         </Row>
       </AppBar>
       <ImageList
-        variant="masonry"
+        variant="quilted"
         sx={{ width: "90%", margin: "auto", padding: "5% 0" }}
-        cols={4}
+        cols={3}
+        rowHeight={400}
       >
         {data.map((item) => (
-          <ImageListItem key={item._id}>
-            <img
-              src={`${item.image}?w=248&fit=crop&auto=format`}
-              srcSet={`${item.image}?w=248&fit=crop&auto=format&dpr=2 2x`}
-              alt={item.name}
-              loading="lazy"
-            />
-            <ImageListItemBar
-              title={item.name}
-              subtitle={item.price}
-              actionIcon={
-                <Link to={`/details/${item._id}`}>
+          <Link to={`/details/${item._id}`}>
+            <ImageListItem key={item._id}>
+              <img
+                src={`${item.image}?w=248&fit=crop&auto=format`}
+                srcSet={`${item.image}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                alt={item.name}
+                loading="lazy"
+              />
+              <ImageListItemBar
+                title={item.name}
+                subtitle={item.price}
+                actionIcon={
                   <IconButton
                     sx={{ color: "rgba(255, 255, 255, 0.54)" }}
                     aria-label={`info about ${item.title}`}
                   >
                     <AddShoppingCartIcon />
                   </IconButton>
-                </Link>
-              }
-            />
-          </ImageListItem>
+                }
+              />
+            </ImageListItem>
+          </Link>
         ))}
       </ImageList>
     </ThemeProvider>

@@ -8,9 +8,10 @@ const Container = styled.div`
     background-image: url(${backgroundImage});
     background-size: cover; 
     background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh;
-    width: 100vw;
+    background-position: center center;
+    min-height: 100%;
+    position: fixed;
+    width: 100%;
 `;
 
 

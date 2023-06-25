@@ -16,9 +16,9 @@ const Checkout = ({ name, price }) => {
           <Column>
             <AcountText> Nombre: Erick Romero Santibáñez</AcountText>
             <AcountText> Rut: 19065385-4</AcountText>
-            <AcountText> Banco: Banco Chile</AcountText>
+            <AcountText> Banco: Banco Itau</AcountText>
             <AcountText> Tipo de cuenta: Cuenta Corriente</AcountText>
-            <AcountText> Cuenta: 4420201102</AcountText>
+            <AcountText> Cuenta: 0224785124</AcountText>
             <AcountText> tamarayerick090923@gmail.com</AcountText>
           </Column>
         </Row>

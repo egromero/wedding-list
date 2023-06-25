@@ -14,6 +14,7 @@ import { Routes } from "../Routes";
 
 const Gifts = () => {
   const [data, setData] = useState([]);
+  
   const fetchData = () => {
     fetch(Routes.gifts)
       .then((response) => {
@@ -30,7 +31,6 @@ const Gifts = () => {
   if (!data) {
     return <div>Loading...</div>;
   }
-
   return (
     <ThemeProvider theme={theme}>
       <AppBar position="static" color="neutral">
@@ -41,12 +41,14 @@ const Gifts = () => {
       </AppBar>
       <ImageList
         variant="quilted"
-        sx={{ width: "90%", margin: "auto", padding: "5% 0" }}
+        sx={{ width: "90%", margin: "auto", padding: "5% 0", marginBottom: "5%" }}
         cols={3}
         rowHeight={400}
       >
-        {data.map((item) => (
-          <Link to={`/details/${item._id}`}>
+        {data.map((item) => {
+          const price = new Intl.NumberFormat('es-CL', {currency: 'CLP', style: 'currency'}).format(item.price)
+          return (
+            <Link to={`/details/${item._id}`}>
             <ImageListItem key={item._id}>
               <img
                 src={`${item.image}?w=248&fit=crop&auto=format`}
@@ -56,7 +58,10 @@ const Gifts = () => {
               />
               <ImageListItemBar
                 title={item.name}
-                subtitle={item.price}
+                subtitle={price}
+                sx = {{ 
+                  "& .MuiImageListItemBar-title": {whiteSpace: "wrap", overflow: "show"}
+                }}
                 actionIcon={
                   <IconButton
                     sx={{ color: "rgba(255, 255, 255, 0.54)" }}
@@ -68,7 +73,9 @@ const Gifts = () => {
               />
             </ImageListItem>
           </Link>
-        ))}
+          )
+        }
+        )}
       </ImageList>
     </ThemeProvider>
   );

@@ -10,7 +10,7 @@ const Checkout = ({ name, price }) => {
     <ThemeProvider theme={theme}>
       <CardContainer>
         <AcountText style={{ marginBottom: "40px" }}>
-          Transfiera a esta cuenta:
+          Transfiera {price} a esta cuenta:
         </AcountText>
         <Row>
           <Column>

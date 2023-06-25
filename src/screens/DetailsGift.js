@@ -13,6 +13,7 @@ const DetailsGift = () => {
   const { id } = useParams();
   const [data, setData] = useState([]);
   const [showCheckout, setShowCheckout] = useState(false);
+  const price = `${new Intl.NumberFormat('es-CL', {currency: 'CLP', style: 'currency'}).format(data.price)}`;
   const fetchData = () => {
     fetch(Routes.details, {
       headers: { "Content-Type": "application/json" },
@@ -35,7 +36,7 @@ const DetailsGift = () => {
   }
 
   return (
-    (showCheckout && <Checkout name={data.name} price={data.price} />) || (
+    (showCheckout && <Checkout name={data.name} price={price} />) || (
       <ThemeProvider theme={theme}>
         <AppBar position="static" color="neutral">
           <Navbar>
@@ -59,7 +60,7 @@ const DetailsGift = () => {
           <Column>
             <TextName>{data.name} </TextName>
             <TextDescription>{data.description}</TextDescription>
-            <TextPrice>${data.price}</TextPrice>
+            <TextPrice>{price}</TextPrice>
             <Row>
               <Button
                 variant="contained"

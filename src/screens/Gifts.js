@@ -29,7 +29,10 @@ const Gifts = () => {
   }, []);
 
   if (!data) {
-    return <div>Loading...</div>;
+    return <div> Mira, esta página fue creada solo para este evento 
+      y la tenemos en un servicio gratuito, así que si es la 
+      primera vez que entras, se va a demorar un poquito en cargar,
+      pero te puedes entretener leyendo este mensaje, favor paciencia jeje ...</div>;
   }
   return (
     <ThemeProvider theme={theme}>
